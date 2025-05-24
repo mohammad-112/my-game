@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://5iixcp2y22ni"]
+
+[ext_resource type="FontFile" uid="uid://dc0hpvctg4mjk" path="res://platformer_assets/m6x11.ttf" id="1_5v8ap"]
+[ext_resource type="Script" uid="uid://caktsrtqanmdr" path="res://options.gd" id="1_se8ut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5v8ap"]
+bg_color = Color(0.811098, 0.574582, 0.404356, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_se8ut"]
+bg_color = Color(0.422711, 0.270675, 0.157635, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ao2gm"]
+bg_color = Color(0.658729, 0.441139, 0.281152, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_se8ut")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 642.0
+offset_bottom = 319.0
+color = Color(0.714079, 0.556431, 0.400071, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 26.0
+offset_right = 509.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("1_5v8ap")
+theme_override_font_sizes/font_size = 34
+text = "How can you play the game?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 102.0
+offset_right = 614.0
+offset_bottom = 185.0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5v8ap")
+theme_override_font_sizes/font_size = 27
+text = "To move left, press the left arrow."
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5v8ap")
+theme_override_font_sizes/font_size = 27
+text = "To jump, press the up arrow or the space button."
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5v8ap")
+theme_override_font_sizes/font_size = 27
+text = "To move right, press the right arrow."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 62.0
+offset_top = 217.0
+offset_right = 590.0
+offset_bottom = 249.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_5v8ap")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5v8ap")
+theme_override_styles/hover = SubResource("StyleBoxFlat_se8ut")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ao2gm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5v8ap")
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_Mainmenu_pressed"]

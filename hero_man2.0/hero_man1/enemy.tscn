@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://5dk8kpptcrrd"]
+
+[ext_resource type="Texture2D" uid="uid://dj2pba5kkcfum" path="res://platformer_assets/character_0007.png" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://dxxoki6dtw02" path="res://enemy.gd" id="1_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://do2qy3pu3brqg" path="res://platformer_assets/character_0006.png" id="2_qi2p4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iifgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4gyqm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qi2p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_4gyqm")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(18, 22)
+
+[node name="Enemy" type="CharacterBody2D"]
+modulate = Color(0.835546, 0.161583, 0.305761, 1)
+script = ExtResource("1_qi2p4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_iifgy")
+animation = &"run"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_7xaro")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg2mifbxfdcgr"]
+
+[ext_resource type="Script" uid="uid://cgldx17qu8yl7" path="res://control.gd" id="1_ee4bf"]
+[ext_resource type="FontFile" uid="uid://dc0hpvctg4mjk" path="res://platformer_assets/m6x11.ttf" id="1_qtu10"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj5cn"]
+font = ExtResource("1_qtu10")
+font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0.811098, 0.574582, 0.404356, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(0.422711, 0.270675, 0.157635, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0.658729, 0.441139, 0.281152, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ee4bf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.760784, 0.262745, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 619.0
+offset_bottom = 210.0
+text = "YOU WINE :)"
+label_settings = SubResource("LabelSettings_fj5cn")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 205.0
+offset_right = 403.0
+offset_bottom = 273.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxFlat_62e2m")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_62e2m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qtu10")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ee4bf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_62e2m")
+text = "MAIN MENU 
+:)"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

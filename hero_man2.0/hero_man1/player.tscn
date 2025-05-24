@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpura45k2u7xe"]
+
+[ext_resource type="Script" uid="uid://dghmw5sqcfb0k" path="res://platformer_assets/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://do2qy3pu3brqg" path="res://platformer_assets/character_0006.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dj2pba5kkcfum" path="res://platformer_assets/character_0007.png" id="3_sweqy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 18.0278
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_i3pqv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_1jxqw")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_i3pqv")
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://448pxvjbpr6p"]
+
+[ext_resource type="Texture2D" uid="uid://3gyoq4aqyt3o" path="res://platformer_assets/+--++++┬ª+++++-++--+ +--┬¬+++┬ª++-┬╝+--┬¬+-+++-┬ª+--+.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://cjfdkaav401q0" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://dc0hpvctg4mjk" path="res://platformer_assets/m6x11.ttf" id="2_fu7sn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
+texture = ExtResource("1_7vrkn")
+modulate_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
+bg_color = Color(0.811098, 0.574582, 0.404356, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.422711, 0.270675, 0.157635, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.658729, 0.441139, 0.281152, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -7.0
+offset_right = -9.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.535823, 0.557773)
+script = ExtResource("1_fu7sn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 11.0
+offset_right = 1206.0
+offset_bottom = 592.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jix8l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 482.503
+offset_top = 83.8269
+offset_right = 608.503
+offset_bottom = 187.827
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6911, 1.8388)
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "start game 	"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "how to playe"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "Levels
+"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
+text = "Exite
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 798.771
+offset_top = 161.356
+offset_right = 1029.77
+offset_bottom = 270.356
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 45
+text = "HERO MAN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exite_pressed"]

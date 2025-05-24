@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://boemji55knyv6"]
+
+[ext_resource type="Script" uid="uid://bk3wbu0mm8ms1" path="res://lose.gd" id="1_46blr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtc1j"]
+bg_color = Color(0.811098, 0.574582, 0.404356, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl8j0"]
+bg_color = Color(0.422711, 0.270675, 0.157635, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46blr"]
+bg_color = Color(0.658729, 0.441139, 0.281152, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="lose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46blr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -205.0
+offset_top = -155.0
+offset_right = 1167.0
+offset_bottom = 594.0
+color = Color(0.63097, 0, 0.172664, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 29.0
+offset_right = 426.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 66
+text = "LOSER :("
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 215.0
+offset_top = 116.0
+offset_right = 432.0
+offset_bottom = 177.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+theme_override_styles/focus = SubResource("StyleBoxFlat_rtc1j")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rtc1j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pl8j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46blr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtc1j")
+text = "level 1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+offset_left = 249.0
+offset_top = 220.0
+offset_right = 397.0
+offset_bottom = 290.0
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 23
+theme_override_styles/focus = SubResource("StyleBoxFlat_rtc1j")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rtc1j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pl8j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_46blr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtc1j")
+text = "main menu
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
